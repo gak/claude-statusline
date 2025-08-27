@@ -24,7 +24,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     
     // Get jj status
     let jj_info = get_jj_status(&input.workspace.current_dir);
-    let jj_formatted = jj_info.format();
+    let jj_info_option = if jj_info.change_id.is_some() { Some(jj_info) } else { None };
     
     // Determine output style
     let output_style = if input.output_style.name != "default" && input.output_style.name != "null" {
@@ -36,7 +36,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     // Create and format status line
     let status_line = StatusLine {
         directory,
-        jj_info: jj_formatted,
+        jj_info: jj_info_option,
         model_name: input.model.display_name,
         output_style,
     };

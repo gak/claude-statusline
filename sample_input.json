@@ -7,8 +7,8 @@
     "display_name": "Claude 3.5 Sonnet"
   },
   "workspace": {
-    "current_dir": "/Users/gak/src/grabby",
-    "project_dir": "/Users/gak/src/grabby"
+    "current_dir": "/Users/gak/src/claude-statusline",
+    "project_dir": "/Users/gak/src/claude-statusline"
   },
   "version": "1.0.71",
   "output_style": {
