@@ -1,6 +1,8 @@
 # Claude Statusline
 
-A Rust binary that provides a clean statusline for Claude Code, replacing the complex bash command with native Rust and `jj-lib` integration.
+A vibrant Rust statusline for Claude Code that was **vibe coded** with Claude! 🎨✨
+
+This binary replaces complex bash commands with clean Rust code featuring dynamic emojis, 24-bit colors, and native jj integration.
 
 ## Features
 
@@ -48,6 +50,8 @@ Update your Claude Code settings (`~/.claude/settings.json`):
 
 ## Development
 
+This project was **vibe coded** with Claude using a test-driven development approach, going from concept to a fully-featured statusline with dynamic emojis and beautiful colors!
+
 Run tests:
 ```bash
 cargo test
@@ -57,6 +61,13 @@ Run with sample input:
 ```bash
 cargo run < sample_input.json
 ```
+
+### Vibe Coding Journey
+1. 🏗️ Started with TDD approach and modular architecture
+2. 🎨 Evolved colors from basic to vibrant 24-bit true colors  
+3. ✨ Added dynamic emojis that change based on repository state
+4. 🧹 Refined to clean layout with elegant section separators
+5. 🚀 All developed through natural conversation and iteration!
 
 ## Architecture
 
