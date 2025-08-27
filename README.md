@@ -29,7 +29,7 @@ The binary reads JSON from stdin (provided by Claude Code) and outputs a formatt
 echo '{"workspace":{"current_dir":"/Users/gak/src/grabby"},"model":{"display_name":"Claude 3.5 Sonnet"},"output_style":{"name":"default"}}' | claude-statusline
 ```
 
-Output: `📂~/src/grabby (⚡abc123 main*) 🧠Claude 3.5 Sonnet [🎭Learning]`
+Output: `📂 ~/src/grabby ‧ ⚡ abc123 main* ‧ 🧠 Claude 3.5 Sonnet ‧ 🎭 Learning`
 
 ## Configuration
 
@@ -76,10 +76,10 @@ cargo run < sample_input.json
 - **🎭** Output style indicator (when not default)
 
 ### Status Indicators
-- `(🔀abc123 main)` - Clean repository with change ID and bookmarks
-- `(⚡abc123 main*)` - Dirty repository with uncommitted changes
-- `(⚡abc123 main conflict*)` - Repository with conflicts and changes
-- No parentheses when not in a jj repository
+- `🔀 abc123 main` - Clean repository with change ID and bookmarks
+- `⚡ abc123 main*` - Dirty repository with uncommitted changes
+- `⚡ abc123 main conflict*` - Repository with conflicts and changes
+- No jj status section when not in a jj repository
 
 ### Color Scheme
 - **Directory path**: Vibrant Teal `RGB(64, 224, 208)`
@@ -90,6 +90,12 @@ cargo run < sample_input.json
 All colors use 24-bit true color for maximum vibrancy on modern terminals like Ghostty.
 
 ### Example Outputs
-- Clean repo: `📂~/src/project (🔀abc123 main) 🧠Claude 3.5 Sonnet`
-- Dirty repo: `📂~/src/project (⚡abc123 main*) 🧠Claude 3.5 Sonnet [🎭Learning]`
-- No repo: `📂~/src/project 🧠Claude 3.5 Sonnet`
+- Clean repo: `📂 ~/src/project ‧ 🔀 abc123 main ‧ 🧠 Claude 3.5 Sonnet`
+- Dirty repo: `📂 ~/src/project ‧ ⚡ abc123 main* ‧ 🧠 Claude 3.5 Sonnet ‧ 🎭 Learning`
+- No repo: `📂 ~/src/project ‧ 🧠 Claude 3.5 Sonnet`
+
+### Layout Features
+- **Clean spacing**: Space after each emoji for readability
+- **Section separators**: Dark grey middle dots `‧` between sections `RGB(96, 96, 96)`
+- **No brackets**: Removed parentheses and square brackets for cleaner look
+- **Consistent flow**: Uniform spacing and visual hierarchy
