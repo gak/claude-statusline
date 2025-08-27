@@ -6,6 +6,11 @@ A vibrant Rust statusline for Claude Code that was **vibe coded** with Claude! �
 📂 ~/src/project ‧ ⚡ abc123 main* ‧ 🧠 Claude 3.5 Sonnet ‧ 🎭 Learning
 ```
 
+**With colors:**
+<p>
+<span style="color: #40E0D0">📂 ~/src/project</span> <span style="color: #606060">‧</span> <span style="color: #FF1493">⚡ abc123 main*</span> <span style="color: #606060">‧</span> <span style="color: #FF8C00">🧠 Claude 3.5 Sonnet</span> <span style="color: #606060">‧</span> <span style="color: #32CD32">🎭 Learning</span>
+</p>
+
 This binary replaces complex bash commands with clean Rust code featuring dynamic emojis, 24-bit colors, and intelligent jj repository detection.
 
 ## Features
