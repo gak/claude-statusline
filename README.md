@@ -6,6 +6,7 @@ A Rust binary that provides a clean statusline for Claude Code, replacing the co
 
 - **Native jj integration**: Uses `jj-lib` directly instead of shelling out to commands
 - **Vibrant 24-bit colors**: Teal directory, hot pink jj status, electric orange model name, neon lime output style
+- **Dynamic emojis**: Visual indicators that change based on repository state
 - **Smart path formatting**: Home directory abbreviation and path truncation
 - **JSON input parsing**: Reads Claude Code's JSON data from stdin
 - **Test-driven development**: Comprehensive test coverage
@@ -28,7 +29,7 @@ The binary reads JSON from stdin (provided by Claude Code) and outputs a formatt
 echo '{"workspace":{"current_dir":"/Users/gak/src/grabby"},"model":{"display_name":"Claude 3.5 Sonnet"},"output_style":{"name":"default"}}' | claude-statusline
 ```
 
-Output: `~/src/grabby (abc123 main*) Claude 3.5 Sonnet`
+Output: `📂~/src/grabby (⚡abc123 main*) 🧠Claude 3.5 Sonnet [🎭Learning]`
 
 ## Configuration
 
@@ -65,18 +66,30 @@ cargo run < sample_input.json
 - `src/output.rs` - Colored terminal output formatting
 - `src/main.rs` - CLI entry point
 
-## Status Indicators
+## Visual Elements
 
-- `(abc123 main)` - Current change ID and bookmarks (hot pink)
-- `(abc123 main*)` - Asterisk indicates modified files (hot pink)
-- `(abc123 main conflict)` - Shows conflict status (hot pink)
+### Emojis
+- **📂** Directory path indicator
+- **🔀** Clean jj repository (no uncommitted changes)  
+- **⚡** Dirty jj repository (uncommitted changes present)
+- **🧠** Model name indicator
+- **🎭** Output style indicator (when not default)
+
+### Status Indicators
+- `(🔀abc123 main)` - Clean repository with change ID and bookmarks
+- `(⚡abc123 main*)` - Dirty repository with uncommitted changes
+- `(⚡abc123 main conflict*)` - Repository with conflicts and changes
 - No parentheses when not in a jj repository
 
-## Color Scheme
-
+### Color Scheme
 - **Directory path**: Vibrant Teal `RGB(64, 224, 208)`
 - **JJ status**: Hot Pink `RGB(255, 20, 147)` 
 - **Model name**: Electric Orange `RGB(255, 140, 0)`
 - **Output style**: Neon Lime `RGB(50, 205, 50)`
 
 All colors use 24-bit true color for maximum vibrancy on modern terminals like Ghostty.
+
+### Example Outputs
+- Clean repo: `📂~/src/project (🔀abc123 main) 🧠Claude 3.5 Sonnet`
+- Dirty repo: `📂~/src/project (⚡abc123 main*) 🧠Claude 3.5 Sonnet [🎭Learning]`
+- No repo: `📂~/src/project 🧠Claude 3.5 Sonnet`
