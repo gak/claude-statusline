@@ -34,12 +34,12 @@ fn test_integration_with_sample_json() {
     
     // Test jj status (will be empty since /Users/gak/src/grabby is not a jj repo in test environment)
     let jj_info = get_jj_status(&input.workspace.current_dir);
-    let jj_formatted = jj_info.format();
+    let jj_info_option = if jj_info.change_id.is_some() { Some(jj_info) } else { None };
     
     // Test output formatting
     let status_line = StatusLine {
         directory,
-        jj_info: jj_formatted,
+        jj_info: jj_info_option,
         model_name: input.model.display_name,
         output_style: None, // default style should be None
     };
@@ -80,7 +80,7 @@ fn test_integration_with_learning_style() {
     assert_eq!(directory, "~/src/claude-statusline");
     
     let jj_info = get_jj_status(&input.workspace.current_dir);
-    let jj_formatted = jj_info.format();
+    let jj_info_option = if jj_info.change_id.is_some() { Some(jj_info) } else { None };
     
     let output_style = if input.output_style.name != "default" && input.output_style.name != "null" {
         Some(input.output_style.name)
@@ -90,7 +90,7 @@ fn test_integration_with_learning_style() {
     
     let status_line = StatusLine {
         directory,
-        jj_info: jj_formatted,
+        jj_info: jj_info_option,
         model_name: input.model.display_name,
         output_style,
     };
@@ -172,7 +172,7 @@ fn test_integration_end_to_end_flow() {
     
     // Get jj status
     let jj_info = get_jj_status(&input.workspace.current_dir);
-    let jj_formatted = jj_info.format();
+    let jj_info_option = if jj_info.change_id.is_some() { Some(jj_info) } else { None };
     
     // Determine output style
     let output_style = if input.output_style.name != "default" && input.output_style.name != "null" {
@@ -184,7 +184,7 @@ fn test_integration_end_to_end_flow() {
     // Create and format status line
     let status_line = StatusLine {
         directory,
-        jj_info: jj_formatted,
+        jj_info: jj_info_option,
         model_name: input.model.display_name,
         output_style,
     };

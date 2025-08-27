@@ -2,9 +2,9 @@
 
 A vibrant Rust statusline for Claude Code that was **vibe coded** with Claude! 🎨✨
 
-```
-📂 ~/src/project ‧ ⚡ abc123 main* ‧ 🧠 Claude 3.5 Sonnet ‧ 🎭 Learning
-```
+![Claude Statusline Demo](https://github.com/user-attachments/assets/your-image-id-here)
+
+*Live terminal showing branch name highlighting with 24-bit colors in Ghostty*
 
 This binary replaces complex bash commands with clean Rust code featuring dynamic emojis, 24-bit colors, and intelligent jj repository detection.
 
@@ -71,7 +71,8 @@ cargo run < sample_input.json
 2. 🎨 Evolved colors from basic to vibrant 24-bit true colors  
 3. ✨ Added dynamic emojis that change based on repository state
 4. 🧹 Refined to clean layout with elegant section separators
-5. 🚀 All developed through natural conversation and iteration!
+5. 🌟 Enhanced branch highlighting for better visibility
+6. 🚀 All developed through natural conversation and iteration!
 
 ### Implementation Notes
 - Currently uses `jj` commands for repository detection (reliable and simple)
@@ -103,7 +104,11 @@ cargo run < sample_input.json
 
 ### Color Scheme
 - **Directory path**: Vibrant Teal `RGB(64, 224, 208)`
-- **JJ status**: Hot Pink `RGB(255, 20, 147)` 
+- **JJ status**: 
+  - **Branch names**: Bright Hot Pink `RGB(255, 20, 147)` - for prominence
+  - **Commit IDs**: Duller Hot Pink `RGB(200, 80, 140)` - for subtlety
+  - **Conflict indicators**: Duller Hot Pink `RGB(200, 80, 140)` 
+  - **Change asterisk**: White (uncolored)
 - **Model name**: Electric Orange `RGB(255, 140, 0)`
 - **Output style**: Neon Lime `RGB(50, 205, 50)`
 
