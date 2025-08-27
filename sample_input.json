@@ -1,0 +1,17 @@
+{
+  "session_id": "test-session-123",
+  "transcript_path": "/tmp/transcript.json",
+  "cwd": "/Users/gak/src/grabby",
+  "model": {
+    "id": "claude-3-5-sonnet-20241022",
+    "display_name": "Claude 3.5 Sonnet"
+  },
+  "workspace": {
+    "current_dir": "/Users/gak/src/grabby",
+    "project_dir": "/Users/gak/src/grabby"
+  },
+  "version": "1.0.71",
+  "output_style": {
+    "name": "default"
+  }
+}
