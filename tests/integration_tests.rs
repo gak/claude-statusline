@@ -100,7 +100,7 @@ fn test_integration_with_learning_style() {
     // Should contain directory, model name, and Learning style
     assert!(formatted.contains("~/src/claude-statusline"));
     assert!(formatted.contains("Claude 3.5 Sonnet"));
-    assert!(formatted.contains("[Learning]"));
+    assert!(formatted.contains("Learning")); // Check for text content (now has colors)
 }
 
 #[test]
@@ -194,7 +194,7 @@ fn test_integration_end_to_end_flow() {
     // Verify the complete output
     assert!(formatted.contains("~/src/test-project"));
     assert!(formatted.contains("Claude 3.5 Sonnet"));
-    assert!(formatted.contains("[Explanatory]"));
+    assert!(formatted.contains("Explanatory")); // Check for text content (now has colors)
     
     // Should not crash and should produce some output
     assert!(!formatted.is_empty());
