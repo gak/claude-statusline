@@ -2,11 +2,11 @@
 
 A vibrant Rust statusline for Claude Code that was **vibe coded** with Claude! 🎨✨
 
-This binary replaces complex bash commands with clean Rust code featuring dynamic emojis, 24-bit colors, and native jj integration.
+This binary replaces complex bash commands with clean Rust code featuring dynamic emojis, 24-bit colors, and intelligent jj repository detection.
 
 ## Features
 
-- **Native jj integration**: Uses `jj-lib` directly instead of shelling out to commands
+- **Smart jj integration**: Detects jj repositories and retrieves status information
 - **Vibrant 24-bit colors**: Teal directory, hot pink jj status, electric orange model name, neon lime output style
 - **Dynamic emojis**: Visual indicators that change based on repository state
 - **Smart path formatting**: Home directory abbreviation and path truncation
@@ -31,7 +31,7 @@ The binary reads JSON from stdin (provided by Claude Code) and outputs a formatt
 echo '{"workspace":{"current_dir":"/Users/gak/src/grabby"},"model":{"display_name":"Claude 3.5 Sonnet"},"output_style":{"name":"default"}}' | claude-statusline
 ```
 
-Output: `📂 ~/src/grabby ‧ ⚡ abc123 main* ‧ 🧠 Claude 3.5 Sonnet ‧ 🎭 Learning`
+Output: `📂 ~/src/grabby ‧ ⚡ abc123 main* ‧ 🧠 Claude 3.5 Sonnet`
 
 ## Configuration
 
@@ -69,11 +69,16 @@ cargo run < sample_input.json
 4. 🧹 Refined to clean layout with elegant section separators
 5. 🚀 All developed through natural conversation and iteration!
 
+### Implementation Notes
+- Currently uses `jj` commands for repository detection (reliable and simple)
+- Ready for future migration to `jj-lib` native integration when API stabilizes
+- Designed with clean abstractions to support either approach
+
 ## Architecture
 
 - `src/input.rs` - JSON parsing and data structures
 - `src/directory.rs` - Path formatting (home abbreviation, truncation)
-- `src/jj_status.rs` - Native jj repository status using `jj-lib`
+- `src/jj_status.rs` - jj repository status detection and parsing
 - `src/output.rs` - Colored terminal output formatting
 - `src/main.rs` - CLI entry point
 
